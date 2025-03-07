@@ -4,8 +4,10 @@ from django.urls import reverse
 
 
 def index(request):
-    return HttpResponse("Страница приложения women.")
+    return render(request, 'women/index.html')
 
+def about(request):
+    return render(request, 'women/about.html')
 
 def categories(request, cat_id):
     return HttpResponse(f"<h1>Статьи по категориям</h1><p>{cat_id}</p></>")
