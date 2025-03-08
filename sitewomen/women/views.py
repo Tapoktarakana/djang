@@ -3,7 +3,11 @@ from django.shortcuts import render, redirect
 from django.template.defaultfilters import slugify
 from django.urls import reverse
 
-menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+menu = [{'title': "О сайте", 'url_name': 'about'},
+        {'title': "Добавить статью", 'url_name': 'add_page'},
+        {'title': "Обратная связь", 'url_name': 'contact'},
+        {'title': "Войти", 'url_name': 'login'}
+]
 
 data_db = [
     {'id': 1, 'title': 'Анджелина Джоли', 'content': 'Биография Анджелины Джоли', 'is_published': True},
@@ -30,3 +34,15 @@ def page_not_found(request, exception):
 
 def show_post(request, post_id):
     return HttpResponse(f"Отображение статьи с id = {post_id}")
+
+
+def addpage(request):
+    return HttpResponse("Добавление статьи")
+
+
+def contact(request):
+    return HttpResponse("Обратная связь")
+
+
+def login(request):
+    return HttpResponse("Авторизация")
