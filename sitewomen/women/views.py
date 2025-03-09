@@ -29,6 +29,7 @@ def index(request):
         'title': 'Главная страница',
         'menu': menu,
         'posts': data_db,
+        'cat_selected': 0,
     }
     return render(request, 'women/index.html', context=data)
 
@@ -55,3 +56,14 @@ def contact(request):
 
 def login(request):
     return HttpResponse("Авторизация")
+
+
+def show_category(request, cat_id):
+    data = {
+        'title': 'Отображение по рубрикам',
+        'menu': menu,
+        'posts': data_db,
+        'cat_selected': cat_id,
+    }
+
+    return render(request, 'women/index.html', context=data)
